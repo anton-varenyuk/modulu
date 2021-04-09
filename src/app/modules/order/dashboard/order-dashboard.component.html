@@ -1,0 +1,34 @@
+<div class="order-page">
+  <div class="item-list">
+    <a class="item-link" *ngFor="let item of itemList" routerLink="item/{{item.id}}" [state]="{ data: item }"
+       (click)="hideDummy()">
+      <div class="item">
+        <div class="img-card">
+          <img src="{{item.imageUrl}}" alt="{{item.name}}" width="100">
+        </div>
+        <div class="item-details">
+          <span class="item-name"><b>{{item.name}}</b></span>
+          <span class="item-price">₴ {{item.price}}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="item-view">
+    <div *ngIf="showDummy">
+      <div class="image-wrapper">
+        <div class="image-dummy">
+          click on item to see the details
+        </div>
+      </div>
+      <div class="item-info">
+        <div class="item-name--dummy"></div>
+        <div class="item-price--dummy"></div>
+        <div class="item-description--dummy"></div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

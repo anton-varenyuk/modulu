@@ -1,0 +1,7 @@
+<div class="header">
+  <a routerLink="/home">
+    <img src="../../../../assets/images/logo.png" width="200" alt="logo">
+  </a>
+  <a class="auth-link" *ngIf="checkAuthState()" (click)="switchLoggedInState(false)">Log out</a>
+  <a routerLink="/registration" class="auth-link" *ngIf="!checkAuthState()">Log in</a>
+</div>

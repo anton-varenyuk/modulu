@@ -1,0 +1,15 @@
+<div class="registration-form">
+  <div *ngIf="authMode === 'signUp'">
+    <app-button-generic text="Register" (click)="signUp()" class="auth-button"></app-button-generic>
+    <p class="additional-message">Already have an account? <span class="auth-link"
+                                                               (click)="switchAuthMode('signIn')">Sign In</span></p>
+  </div>
+
+  <div *ngIf="authMode === 'signIn'">
+    <app-button-generic text="Sign In" (click)="signUp()" class="auth-button"></app-button-generic>
+    <p class="additional-message">Don't have an account?
+      <span class="auth-link" (click)="switchAuthMode('signUp')">Register</span></p>
+  </div>
+</div>
+
+

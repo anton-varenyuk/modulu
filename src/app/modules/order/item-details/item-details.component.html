@@ -1,0 +1,10 @@
+<div *ngIf="item" class="item">
+  <div class="image-wrapper">
+    <img src="{{item?.imageUrl}}" alt="{{item?.name}}">
+  </div>
+  <div class="item-info">
+    <h1 class="item-name">{{item?.name}}</h1>
+    <span class="item-price">₴ {{item?.price}}</span>
+    <span class="item-description">{{item?.description}}</span>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@import "src/styles";
+
+.header {
+  background: linear-gradient(267deg, #eaeaea 0%, #eaeff3 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.auth-link {
+  color: $color-txt-primary;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

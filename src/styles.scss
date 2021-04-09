@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'OpenSansCondensed', sans-serif;
+$color-primary: #267975;
+$color-txt-primary: #353333;
+$text-size-medium: 18px;
+$image-border: 1px solid gainsboro;
+
+@font-face {
+  font-family: 'OpenSansCondensed';
+  src: url('assets/fonts/OpenSansCondensed-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSansCondensed';
+  src: url('assets/fonts/OpenSansCondensed-LightItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSansCondensed';
+  src: url('assets/fonts/OpenSansCondensed-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  background: url('./assets/images/bg.jpg') no-repeat fixed center;
+  background-size: cover;
+}
+
+@mixin full-height {
+  min-height: calc(100vh - 78px);
+}
+@mixin glass {
+  background: rgba(250,251,251,.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  border-radius: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+}
+
+.wrapper {
+  min-width: 80%;
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.block {
+  padding: 20px;
+}
+
+.page {
+  @include full-height;
+}
+

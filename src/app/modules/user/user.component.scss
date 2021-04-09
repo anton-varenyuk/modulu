@@ -1,0 +1,55 @@
+@import "src/styles";
+
+.profile {
+  @include glass;
+  padding: 20px;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "image user-info user-info account-controls"
+    "recent-orders recent-orders no-name no-name";
+}
+
+.user-image {
+  grid-area: image;
+
+  img {
+    border: $image-border;
+  }
+}
+
+.account-controls {
+  grid-area: account-controls;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.02);
+}
+
+.user-info {
+  grid-area: user-info;
+}
+
+.recent-orders {
+  grid-area: recent-orders;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.02);
+}
+
+.user-info-item {
+  font-size: $text-size-medium;
+
+  .info {
+    font-weight: bold;
+  }
+  .data {
+    padding-left: 10px;
+  }
+}
+
+.no-name { grid-area: no-name; }

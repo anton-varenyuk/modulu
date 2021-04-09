@@ -1,0 +1,9 @@
+@import "./src/styles";
+
+.button-generic {
+  padding: 5px 10px;
+  background: $color-primary;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}

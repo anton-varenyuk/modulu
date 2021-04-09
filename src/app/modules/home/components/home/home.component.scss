@@ -1,0 +1,15 @@
+@import "src/styles";
+
+.home-feed-item {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  @include glass;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}

@@ -1,0 +1,30 @@
+@import "src/styles";
+
+
+.image-wrapper {
+  img {
+    width: 400px;
+    border: $image-border;
+    border-radius: 5px;
+  }
+}
+
+.item {
+  &-info {
+    display: flex;
+    flex-direction: column;
+
+    * {
+      margin-bottom: 5px;
+    }
+  }
+
+  &-price {
+    color: $color-primary;
+    font-size: $text-size-medium;
+    font-weight: bold;
+  }
+}
+
+
+
