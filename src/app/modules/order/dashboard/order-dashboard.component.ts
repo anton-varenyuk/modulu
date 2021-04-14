@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../services/items.service';
-import Item from '../../../helpers/utility/item';
+import Item from '../../../shared/interfaces/item';
 import {Router} from '@angular/router';
 
 @Component({

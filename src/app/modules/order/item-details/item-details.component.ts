@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
-import Item from '../../../helpers/utility/item';
+import Item from '../../../shared/interfaces/item';
 import { CartService } from '../../../shared/services/cart.service';
 import { ItemsService } from '../services/items.service';
 import {filter, map} from 'rxjs/operators';
@@ -30,13 +30,13 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   public addToCart(): void {
-    this.items.getItems().find(element => element.id === this.item.id).inCart = true;
+    this.items.findItem(this.item).inCart = true;
     this.cart.addItem(this.item);
     console.log(this.cart.getItems());
   }
 
   public removeFromCart(): void {
-    this.items.getItems().find(element => element.id === this.item.id).inCart = false;
+    this.items.findItem(this.item).inCart = false;
     this.cart.removeItem(this.item);
     console.log('item: ', this.item);
     console.log(this.cart.getItems());

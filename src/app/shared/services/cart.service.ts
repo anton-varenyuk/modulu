@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import Item from '../../helpers/utility/item';
+import Item from '../interfaces/item';
+import {ItemsService} from '../../modules/order/services/items.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import Item from '../../helpers/utility/item';
 export class CartService {
   public itemList: Item[];
 
-  constructor() {
+  constructor(private items: ItemsService) {
     this.itemList = [];
   }
 
@@ -17,7 +18,7 @@ export class CartService {
   }
 
   public removeItem(item: Item): void {
-    const index = this.itemList.indexOf(item);
+    const index = this.itemList.indexOf(this.items.findItem(item));
     if (index > -1) {
       this.itemList.splice(index, 1);
     }
