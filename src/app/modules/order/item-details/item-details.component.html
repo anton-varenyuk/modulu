@@ -7,4 +7,9 @@
     <span class="item-price">₴ {{item?.price}}</span>
     <span class="item-description">{{item?.description}}</span>
   </div>
+  <app-button-generic [text]="item?.inCart ? 'Added' : 'Add to cart'" (click)="addToCart()" [disabled]="item?.inCart"
+                      [classList]="'button-generic-wide'" class="add-button">
+  </app-button-generic>
+  <span class="item-remove" *ngIf="item?.inCart" (click)="removeFromCart()">Remove</span>
 </div>
+

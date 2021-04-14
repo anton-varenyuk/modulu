@@ -7,7 +7,7 @@ import {ItemDetailsComponent} from './item-details/item-details.component';
 
 const routes: Routes = [
   { path: '', component: OrderDashboardComponent, canActivate: [LoggedInGuard], children: [
-      { path: 'item/:id', component: ItemDetailsComponent, canActivate: [LoggedInGuard]}
+      { path: 'item/:id', component: ItemDetailsComponent}
     ]
   }
 ];

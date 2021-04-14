@@ -26,5 +26,22 @@
   }
 }
 
+.add-button {
+  display: block;
+  margin-top: 20px;
+}
+
+.item-remove {
+  display: block;
+  color: $color-primary;
+  cursor: pointer;
+  text-align: center;
+  margin: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 
 

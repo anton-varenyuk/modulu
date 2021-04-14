@@ -1,23 +1,44 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {Observable} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
+import Item from '../../../helpers/utility/item';
+import { CartService } from '../../../shared/services/cart.service';
+import { ItemsService } from '../services/items.service';
+import {filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-item-details',
   templateUrl: './item-details.component.html',
   styleUrls: ['./item-details.component.scss']
 })
+
 export class ItemDetailsComponent implements OnInit {
-  item: any;
+  item: Item;
 
-  constructor(private route: ActivatedRoute) {
-
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private items: ItemsService,
+              private cart: CartService) {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.item = window.history.state.data;
-      console.log(this.item);
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationStart),
+      map(() => this.router.getCurrentNavigation().extras.state)
+    ).subscribe(data => {
+      this.item = data as Item;
     });
+  }
+
+  public addToCart(): void {
+    this.items.getItems().find(element => element.id === this.item.id).inCart = true;
+    this.cart.addItem(this.item);
+    console.log(this.cart.getItems());
+  }
+
+  public removeFromCart(): void {
+    this.items.getItems().find(element => element.id === this.item.id).inCart = false;
+    this.cart.removeItem(this.item);
+    console.log('item: ', this.item);
+    console.log(this.cart.getItems());
   }
 }

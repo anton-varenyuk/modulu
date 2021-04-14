@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../services/items.service';
-import {ActivatedRoute} from '@angular/router';
+import Item from '../../../helpers/utility/item';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -9,12 +10,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 
 export class OrderDashboardComponent implements OnInit {
-  public itemList;
-  public state: any;
+  public itemList: Item[];
   public showDummy: boolean;
 
-  constructor(private itemService: ItemsService,
-              private route: ActivatedRoute ) {
+  constructor( private itemService: ItemsService,
+               private router: Router ) {
     this.showDummy = true;
     this.itemList = this.itemService.getItems();
   }
@@ -22,8 +22,13 @@ export class OrderDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  hideDummy(): void {
+  public hideDummy(): void {
     this.showDummy = false;
+  }
+
+  public navigateTo(item: Item): void {
+    this.router.navigateByUrl( `/order/item/${item.id}`, { state: item });
+    this.hideDummy();
   }
 
 }

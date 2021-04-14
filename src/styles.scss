@@ -1,10 +1,11 @@
 $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'OpenSansCondensed', sans-serif;
-$color-primary: #267975;
+$color-primary: #207a44;
 $color-txt-primary: #353333;
 $text-size-medium: 18px;
 $image-border: 1px solid gainsboro;
 
+// FONTS
 @font-face {
   font-family: 'OpenSansCondensed';
   src: url('assets/fonts/OpenSansCondensed-Light.ttf') format('truetype');
@@ -36,19 +37,40 @@ $image-border: 1px solid gainsboro;
   font-style: normal;
 }
 
-body {
-  background: url('./assets/images/bg.jpg') no-repeat fixed center;
-  background-size: cover;
-}
-
+// MIXINS
 @mixin full-height {
   min-height: calc(100vh - 78px);
 }
 @mixin glass {
-  background: rgba(250,251,251,.4);
+  background: rgba(250, 251, 251, 0.4);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 5px rgba(0,0,0,.1);
   border-radius: 5px;
+}
+@mixin button-generic {
+  padding: 5px 10px;
+  background: $color-primary;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: .2s all ease-in-out;
+
+  &:hover {
+    background: darken($color-primary, 5%);
+  }
+
+  &:disabled {
+    background: #a5c1a8;
+    color: #626262;
+    &:hover {
+      background: #a5c1a8;
+    }
+  }
+}
+
+body {
+  background: url('./assets/images/bg.jpg') no-repeat fixed center;
+  background-size: cover;
 }
 
 * {
@@ -72,3 +94,13 @@ body {
   @include full-height;
 }
 
+.button-generic {
+  @include button-generic;
+
+  &-wide {
+    @include button-generic;
+    width: 100%;
+    padding: 10px;
+    font-size: $text-size-medium;
+  }
+}

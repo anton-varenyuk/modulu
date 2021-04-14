@@ -1,7 +1,6 @@
 <div class="order-page">
   <div class="item-list">
-    <a class="item-link" *ngFor="let item of itemList" routerLink="item/{{item.id}}" [state]="{ data: item }"
-       (click)="hideDummy()">
+    <a class="item-link" *ngFor="let item of itemList" (click)="navigateTo(item)">
       <div class="item">
         <div class="img-card">
           <img src="{{item.imageUrl}}" alt="{{item.name}}" width="100">
