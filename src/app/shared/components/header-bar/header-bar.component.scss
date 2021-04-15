@@ -10,10 +10,24 @@
 
 .auth-link {
   color: $color-txt-primary;
-  font-size: 13px;
+  font-size: $text-size-small;
   cursor: pointer;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
+}
+
+.cart-label {
+  font-size: $text-size-small;
+  background: $color-primary;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
 }

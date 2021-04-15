@@ -2,6 +2,10 @@
   <a routerLink="/home">
     <img src="../../../../assets/images/logo.png" width="200" alt="logo">
   </a>
-  <a class="auth-link" *ngIf="checkAuthState()" (click)="switchLoggedInState(false)">Log out</a>
-  <a routerLink="/registration" class="auth-link" *ngIf="!checkAuthState()">Log in</a>
+  <div class="header-controls">
+    <div class="cart-label" *ngIf="(items.length > 0) && checkAuthState()" routerLink="order/checkout" >Cart
+      ({{items.length}})</div>
+    <a class="auth-link" *ngIf="checkAuthState()" (click)="switchAuthState(false)">Log out</a>
+    <a routerLink="/registration" class="auth-link" *ngIf="!checkAuthState()">Log in</a>
+  </div>
 </div>

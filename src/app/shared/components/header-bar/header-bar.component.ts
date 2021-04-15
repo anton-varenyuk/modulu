@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
+import Item from '../../interfaces/item';
 
 
 @Component({
@@ -8,14 +10,19 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header-bar.component.scss']
 })
 export class HeaderBarComponent implements OnInit {
+  items: Item[];
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+              private cart: CartService) {
+
+    this.items = this.cart.getItems();
+  }
 
   ngOnInit(): void {
   }
 
-  public switchLoggedInState(state: boolean): void {
-    this.auth.switchLoggedInState(state);
+  public switchAuthState(state: boolean): void {
+    this.auth.switchAuthState(state);
   }
 
   public checkAuthState(): boolean {

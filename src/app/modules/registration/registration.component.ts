@@ -16,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
   public signUp(): void {
-    this.auth.switchLoggedInState(true);
+    this.auth.switchAuthState(true);
   }
   public switchAuthMode(mode: string): void {
     this.authMode = mode;

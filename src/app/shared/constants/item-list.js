@@ -23,7 +23,10 @@ const items = [
   {
     id: 4,
     name: "item 4",
-    description: "ultra nice item number 4",
+    description: "Test for long description. Icaro cleared her throat. " +
+      "‘Aegis failure in eight sectors,’ she said. She swept her hand across " +
+      "the face of her dataslate like a sower scattering seed, and threw the data up onto the display. " +
+      "Ugly blobs blossomed across the northern and central areas of the vast Palace map.",
     price: 774,
     imageUrl: "https://icons.wowdb.com/ptr/large/inv_hand_1h_mawraid_d_01.8996fb3183854ab7085d7e2197ff5dcfc8a4ee8c.jpg?38312"
   },

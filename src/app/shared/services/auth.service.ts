@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private router: Router) { }
 
-  public switchLoggedInState(state: boolean): void {
+  public switchAuthState(state: boolean): void {
     if (state) {
       window.localStorage.setItem('loggedIn', 'true');
       this.router.navigate(['home']);

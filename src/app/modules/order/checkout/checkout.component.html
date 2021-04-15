@@ -1,0 +1,29 @@
+<div class="checkout-wrapper" *ngIf="items.length > 0">
+  <div class="items">
+    <div class="cart-item" *ngFor="let item of items">
+      <div class="item-info">
+        <div class="image-wrapper">
+          <img src="{{item?.imageUrl}}" width="60">
+        </div>
+        <div class="item-name">{{item?.name}}</div>
+      </div>
+      <div class="item-price">
+        ₴ {{item?.price}}
+      </div>
+    </div>
+  </div>
+
+  <div class="checkout-total">
+    <div class="total-summ">
+      TOTAL: ₴ {{ orderTotal }}
+    </div>
+  </div>
+
+  <div class="checkout-button-wrapper">
+    <app-button-generic [classList]="'button-generic-wide'" [text]="'CHECKOUT'"></app-button-generic>
+  </div>
+</div>
+
+<div class="checkout-wrapper no-items" *ngIf="items.length === 0">
+  <span>no items in your cart</span>
+</div>
