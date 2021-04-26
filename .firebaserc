@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "modulu-3cb83"
+  },
+  "targets": {
+    "modulu-3cb83": {
+      "hosting": {
+        "sixth": [
+          "modulu-3cb83"
+        ]
+      }
+    }
+  }
+}
